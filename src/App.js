@@ -1,10 +1,17 @@
 import React,{useState} from 'react';
+import GeneratePass from './components/GeneratePass';
 import Password from './components/Password';
+import Sidebar from './components/Sidebar';
+import PasswordChecklist from "react-password-checklist"
+
 
 const App = () => {
   const [userInfo, setuserInfo] = useState({
     password: '',
   });
+
+  const [passwordShown, setPasswordShown] = useState(false);
+
 
   const [isError, setError] = useState(null);
   const handleChangePassword = (e) => {
@@ -18,7 +25,7 @@ const App = () => {
     //if (password.length < 4) {
       if (password.length < 6 || (password.match(/(.)\1{2,}/) || []).length) {
  //   setError("Password must be minimum 4 characters include one UPPERCASE, lowercase, number and special character: @$! % * ? &");
-      setError("Fjalëkalimi duhet të ketë së paku 4 karaktere duke përfshirë një shkronjë të madhe, të vogël, një numër dhe karaktere speciale: @$! % * ? &");
+      setError("Fjalëkalimi duhet të ketë së paku 6 karaktere duke përfshirë një shkronjë të madhe, të vogël, një numër dhe karaktere speciale: @$! % * ? &");
       return;
     }
     else {
@@ -26,6 +33,7 @@ const App = () => {
       smallCount = (password.match(/[a-z]/g) || []).length
       numberCount = (password.match(/[0-9]/g) || []).length
       symbolCount = (password.match(/\W/g) || []).length
+    //   repeatCount = (password.match(!/(.).*\3/g) || []).length
       if (capsCount < 1) {
         // setError("Must contain one UPPERCASE letter");
         setError("Duhet të ketë së paku një shkronjë të madhe");
@@ -43,7 +51,7 @@ const App = () => {
       }
       else if (symbolCount < 1) {
         // setError("Must contain one special character: @$! % * ? &");
-        setError("Duhet të ketë së paku një karakter special: @$! % * ? &");
+        setError("Duhet të ketë së paku një karakter special");
         return;
       }
     }
@@ -62,25 +70,56 @@ const App = () => {
     } catch (error) { throw error;} 
   };
 
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
+
+
   return (
-    <div className="box-border m-0 p-14 bg-white">
-    <div className=" max-w-4xl my-0 mx-auto bg-white p-5 shadow-lg rounded-sm text-center ">
-      <h1 className=" bg-white text-center p-5 m-0 text-2xl ">Testimi i nivelit të vështirësisë së fjalëkalimit</h1>
+    <div className = "h-screen flex flex-row space-x-60">
+    <Sidebar />
+    <div className="flex flex-col m-0 justify-between">
+    <h1 className="font-bold text-center p-5 m-0 text-4xl ">
+      Testimi i nivelit të vështirësisë së fjalëkalimit</h1>
+    <div className="box-border m-0 bg-white">
+    <div className=" max-w-4xl my-0 mx-auto bg-white p-5 shadow-xl rounded-sm text-center ">
       <div className="flex justify-between py-5 px-0 flex-col items-center">
-        <form onSubmit={onSubmit} className="flex flex-col items-stretch pt-7 px-0 pb-4 ">
+        <form onSubmit={onSubmit} className="flex flex-col items-stretch pt-7 px-0 pb-4 w-2/3">
           <label className=" text-lg mb-3 flex font-semibold " htmlFor="password">
             Password 
             {isError !== null && (
-              <p className=" text-red-600 mt-0 mr-0 mb-2 ml-4 max-w-sm text-left "> - {isError}</p>
+              <p className="text-red-600 mt-0 mr-0 mb-2 ml-4 max-w-sm text-left "> - {isError}</p>
             )}
           </label>
-          <input className=" w-auto h-14 text-xl border-2 border-solid border-white bg-white p-4 rounded-lg shadow-lg " type="password" id="password" name="password" onChange={handleChangePassword} required />
+          <div className="flex flex-row space-x-2">
+
+          <input className="w-full h-14 text-xl border-2 border-solid border-white bg-white 
+          p-4 rounded-lg shadow-lg " type={passwordShown ? "text" : "password" } id="password" name="password"
+           onChange={handleChangePassword} required />
+
+           <button onClick={togglePassword} >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:stroke-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" onClick={togglePassword} >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+
+          </button>
+          </div>
+
           <Password password={userInfo.password} actions={dataHandler}/>
+        
           {isStrength === 'Strong' && 
-            <button type="submit" className=" outline-none h-14 bg-gradient-to-r from-yellow-500 to-red-500 border-0 py-4 px-7 text-white text-lg rounded-lg "  > Fjalëkalimi në rregull </button>
+            <button type="submit" className=" outline-none h-14 bg-gradient-to-br 
+            from-gray-300 to-gray-900 border-0 py-4 px-7 text-white text-lg rounded-lg "  >
+             Fjalëkalimi në rregull </button>
           }
         </form>
       </div>
+      </div>
+    </div>
+
+    <GeneratePass />
+
     </div>
     </div>
   )

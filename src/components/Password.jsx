@@ -2,7 +2,7 @@ import React from 'react';
 import './password.css'
 const Password = (props) => {
 
-    const {password} = props;
+  const {password} = props;
 
   const testedResult = password;
   const createPasswordLabel = () => {
@@ -44,15 +44,18 @@ const Password = (props) => {
     }
   }
   {props.actions(createPasswordLabel().info)}
-
+  
   return (
-    <div className="password-strength-meter">
-      <progress className={` password-strength-meter-progress strength-${createPasswordLabel().info}`} value={createPasswordLabel().value} max="4" />
+    <div className="password-strength-meter w-full ">
+      <progress className={`password-strength-meter-progress strength-${createPasswordLabel().info}`} 
+      value={createPasswordLabel().value} max="4" />
       <br />
       <p className="text-base">
-        {password && ( <>
-          <p className={` password__label strength-${createPasswordLabel().info}`}>Fuqia e fjalëkalimit: <span>{createPasswordLabel().info} </span></p> 
-        </>)}
+
+        {password && (
+          <p className={`text-center text-xl font-medium password__label strength-${createPasswordLabel().info}`}>
+          Fuqia e fjalëkalimit: <span>{createPasswordLabel().info} </span></p> 
+        )}
       </p>
     </div>
    )
