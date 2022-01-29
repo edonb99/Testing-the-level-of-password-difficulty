@@ -101,8 +101,8 @@ const GeneratePass = () => {
     }
   
     return (
-        <div className='w-full my-0 mx-auto'>
-          <div className='bg-gray-900 rounded-md shadow-lg p-6 mb-2'>
+        <div className='w-full my-0 mx-auto mt-2'>
+          <div className='bg-gray-100 rounded-md shadow-xl px-6 py-2 mb-2'>
             <div className='relative bg-white py-3 px-2 mb-4'>
               <h3>{password}</h3>
               <button onClick={handleCopyPassword} className='absolute text-white 
@@ -115,7 +115,7 @@ const GeneratePass = () => {
   
 
             <div className='flex justify-between mb-4'>
-              <label htmlFor='password-strength' className="text-white">Karaktere të fjalëkalimit</label>
+              <label htmlFor='password-strength' className="text-gray-800">Karaktere të fjalëkalimit</label>
               <input
                 defaultValue={passwordLength}
                 onChange={(e) => setPasswordLength(e.target.value)}
@@ -129,7 +129,7 @@ const GeneratePass = () => {
   
             <div className="flex flex-row justify-between">
 
-            <div className='flex text-white justify-between mb-4'>
+            <div className='flex text-gray-800 justify-between mb-4'>
               <label htmlFor='uppercase-letters'>Përfshijë shkronjë të madhe</label>
               <input
                 checked={includeUppercase}
@@ -141,7 +141,7 @@ const GeneratePass = () => {
               />
             </div>
 
-            <div className='flex justify-between text-white mb-4'>
+            <div className='flex justify-between text-gray-800 mb-4'>
               <label htmlFor='lowercase-letters'>Përfshijë shkronjë të vogël</label>
               <input
                 checked={includeLowercase}
@@ -157,7 +157,7 @@ const GeneratePass = () => {
   
             <div className="flex flex-row justify-between">
 
-            <div className='flex justify-between text-white mb-4'>
+            <div className='flex justify-between text-gray-800 mb-4'>
               <label htmlFor='include-numbers'>Përfshijë numër</label>
               <input
                 checked={includeNumbers}
@@ -169,7 +169,7 @@ const GeneratePass = () => {
               />
             </div>
   
-            <div className='flex justify-between text-white mb-4'>
+            <div className='flex justify-between text-gray-800 mb-4'>
 
               <label htmlFor='include-symbols'>Përfshijë simbole</label>
               <input
@@ -185,7 +185,9 @@ const GeneratePass = () => {
             </div>
   
             <button onClick={handleGeneratePassword} className='border-none 
-            bg-blue-500 w-full block text-white text-base curser-pointer p-2'>
+            bg-blue-600 w-1/4 my-0 mx-auto block translate transition-all 
+            scale hover:scale-110 duration-500 text-blue-100 hover:bg-blue-900 
+            hover:text-blue-200 text-base curser-pointer p-2 rounded'>
               Gjenero Fjalëkalimin
             </button>
            
