@@ -6,8 +6,8 @@ import {
   upperCaseLetters,
   lowerCaseLetters,
   specialCharacters,
-} from './characters.js'
-import { COPY_SUCCESS } from './message'
+} from '../utils/characters.js'
+import { COPY_SUCCESS } from '../utils/message'
 
 const GeneratePass = () => {
 

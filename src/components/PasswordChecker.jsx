@@ -1,6 +1,6 @@
 import React from 'react';
-import './password.css'
-const Password = (props) => {
+import '../styles/password.css'
+const PasswordChecker = (props) => {
 
   const {password} = props;
 
@@ -60,4 +60,4 @@ const Password = (props) => {
     </div>
    )
   }
-export default Password;
+export default PasswordChecker;

@@ -9,17 +9,17 @@ export default function Algoritmi() {
 
         let lower = (password.match(/[a-z]/g) ?? []).length === 0 ? 1 : 0;
         let upper = (password.match(/[A-Z]/g) ?? []).length === 0 ? 1 : 0;
-        let digit = (password.match(/[0-9]/g) ?? []).length === 0 ? 1 : 0;
-        let mods = lower + upper + digit;
+        let number = (password.match(/[0-9]/g) ?? []).length === 0 ? 1 : 0;
+        let mods = lower + upper + number;
         let tris = (password.match(/(.)\1{2,2}/g) ?? []).length;
 
-        let grps = (password.match(/(.)\1{2,}/g) ?? []).map((x) => {
-            return x.length;
+        let grps = (password.match(/(.)\1{2,}/g) ?? []).map((value) => {
+            return value.length;
         });
         for (let i = subs; i && grps.length; i--) {
             grps = grps
-                .filter((x) => {
-                    return x >= 3;
+                .filter((k) => {
+                    return k >= 3;
                 })
                 .sort((a, b) => {
                     return (a % 3) - (b % 3);
@@ -33,7 +33,6 @@ export default function Algoritmi() {
         steps = Math.max(steps, mods);
         steps = Math.max(steps, adds);
         steps = steps + subs;
-        console.log(steps);
         setResult(steps);
     }
 
@@ -50,18 +49,18 @@ export default function Algoritmi() {
                             p-4 rounded-lg shadow-lg"
                             onChange={(e) => strongPasswordChecker(e.target.value)}>
                         </input>
-                        </div>
-                        <div className="flex flex-row mt-2 items-center justify-center ">
+                    </div>
+                    <div className="flex flex-row mt-2 items-center justify-center ">
                         <h3 className="mx-2 font-medium">Numri minimal i hapave të nevojshëm për ta bërë
-                         <br /> fjalëkalimin e fortë duke u bazuar në
-                         <a href="https://leetcode.com/problems/strong-password-checker/" 
-                         target="_blank" className="underline underline-offset-4
+                            <br /> fjalëkalimin e fortë duke u bazuar në
+                            <a href="https://leetcode.com/problems/strong-password-checker/"
+                                target="_blank" className="underline underline-offset-4
                           decoration-sky-900/[.33] ml-1">algoritëm</a></h3>
                         <div className=" text-red-500 font-semibold text-5xl ">
                             {result}
                         </div>
-                        </div>
                     </div>
+                </div>
             </div>
         </div>
 
