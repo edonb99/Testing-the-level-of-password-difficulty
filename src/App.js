@@ -19,7 +19,7 @@ const App = () => {
     });
     setError(null);
     let capsCount, smallCount, numberCount, symbolCount
-    if (password.length < 6 || (password.match(/(.)\1{2,}/) || []).length) {
+    if (password.length < 6) {
       setError("Fjalëkalimi duhet të ketë së paku 6 karaktere duke përfshirë një shkronjë të madhe, të vogël, një numër dhe simbol");
       return;
     }
@@ -29,7 +29,6 @@ const App = () => {
       numberCount = (password.match(/[0-9]/g) || []).length
       symbolCount = (password.match(/\W/g) || []).length
 
-      //   repeatCount = (password.match(!/(.).*\3/g) || []).length
       if (capsCount < 1) {
         setError("Duhet të ketë së paku një shkronjë të madhe");
         return;
@@ -69,6 +68,7 @@ const App = () => {
   return (
     <div className="h-screen flex flex-row space-x-60">
       <Sidebar />
+      
       <div className="flex flex-col m-0 justify-between">
         <h1 className="font-bold text-center p-2 m-0 text-4xl text-gray-700">
           Testimi i nivelit të vështirësisë së fjalëkalimit</h1>

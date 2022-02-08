@@ -22,22 +22,22 @@ const PasswordChecker = (props) => {
       case 1:
         return ({
           value: 1,
-          info: "Weak",
+          info: "Dobët",
         });
       case 2:
         return ({
           value: 2,
-          info: "Fair",
+          info: "Mirë",
         });
       case 3:
         return ({
           value: 3,
-          info: "Good",
+          info: "ShumëMirë",
         });
       case 4:
         return ({
           value: 4,
-          info: "Strong",
+          info: "Fuqishëm",
         });
       default:
         return null

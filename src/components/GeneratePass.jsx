@@ -6,6 +6,7 @@ import {
   upperCaseLetters,
   lowerCaseLetters,
   specialCharacters,
+  words
 } from '../utils/characters.js'
 import { COPY_SUCCESS } from '../utils/message'
 
@@ -17,13 +18,16 @@ const GeneratePass = () => {
     const [includeLowercase, setIncludeLowercase] = useState(false)
     const [includeNumbers, setIncludeNumbers] = useState(false)
     const [includeSymbols, setIncludeSymbols] = useState(false)
-  
+
+    const [includeWords, setIncludeWords] = useState(false);
+   
     const handleGeneratePassword = (e) => {
       if (
         !includeUppercase &&
         !includeLowercase &&
         !includeNumbers &&
-        !includeSymbols
+        !includeSymbols &&
+        !includeWords
       ) {
         notify('You must Select atleast one option', true)
       }
@@ -44,16 +48,22 @@ const GeneratePass = () => {
       if (includeSymbols) {
         characterList = characterList + specialCharacters
       }
+
+      if (includeWords) {
+        characterList = characterList + words
+      }
   
       setPassword(createPassword(characterList))
     }
     const createPassword = (characterList) => {
       let password = ''
       const characterListLength = characterList.length
+
+      const charWords = 'Edon'
   
       for (let i = 0; i < passwordLength; i++) {
-        const characterIndex = Math.round(Math.random() * characterListLength)
-        password = password + characterList.charAt(characterIndex)
+        const characterIndex = Math.round(Math.random() * characterListLength);
+        password = password + characterList.charAt(characterIndex) + Math.floor(Math.random() * charWords.length);
       }
       return password
     }
@@ -178,6 +188,16 @@ const GeneratePass = () => {
                 type='checkbox'
                 id='include-symbols'
                 name='include-symbols'
+                className="mt-2 ml-2"
+              />
+
+            <label htmlFor='include-words'>Përfshijë fjale</label>
+              <input
+                checked={includeWords}
+                onChange={(e) => setIncludeWords(e.target.checked)}
+                type='checkbox'
+                id='include-words'
+                name='include-words'
                 className="mt-2 ml-2"
               />
             </div>
