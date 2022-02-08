@@ -66,26 +66,26 @@ const App = () => {
   };
 
   return (
-    <div className="h-screen flex flex-row space-x-60">
+    <div className="w-full md:h-screen flex flex-col md:flex-row md:space-x-60">
       <Sidebar />
       
       <div className="flex flex-col m-0 justify-between">
-        <h1 className="font-bold text-center p-2 m-0 text-4xl text-gray-700">
+        <h1 className="font-bold text-center p-2 m-0 text-2xl md:text-4xl text-gray-700">
           Testimi i nivelit të vështirësisë së fjalëkalimit</h1>
 
         <Algoritmi />
         <div className="box-border m-0 bg-white">
           <div className=" max-w-4xl my-0 mx-auto bg-gray-100 shadow-xl rounded-sm text-center ">
-            <div className="flex justify-between  px-0 flex-col items-center">
-              <form onSubmit={onSubmit} className="flex flex-col items-stretch pt-2 px-0 pb-4 w-2/3">
-                <label className=" text-lg mb-3 flex font-semibold " htmlFor="password">
+            <div className="flex flex-col justify-between px-0 items-center">
+              <form onSubmit={onSubmit} className="flex flex-col items-stretch pt-2 px-0 pb-4 w-4/5 md:w-2/3">
+                <label className=" text-sm md:text-lg mb-3 flex font-semibold " htmlFor="password">
                   {isError !== null && (
                     <p className="text-red-600 text-left ">  {isError}</p>
                   )}
                 </label>
                 <h3>Shëno fjalëkalimin: </h3>
                 <div className="flex flex-row space-x-2">
-                  <input className="w-full h-14 text-xl border-2 border-solid border-gray-500 bg-white 
+                  <input className="w-full h-11 md:h-14 text-xl border-2 border-solid border-gray-500 bg-white 
           p-4 rounded-lg shadow-lg " type={passwordShown ? "text" : "password"} id="password" name="password"
                     onChange={handleChangePassword} required />
                   <button onClick={togglePassword} >

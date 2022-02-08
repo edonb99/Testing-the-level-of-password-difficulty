@@ -53,7 +53,7 @@ const PasswordChecker = (props) => {
       <p className="text-base">
 
         {password && (
-          <p className={`text-center text-xl font-medium password__label strength-${createPasswordLabel().info}`}>
+          <p className={`text-center text-base md:text-xl font-medium password__label strength-${createPasswordLabel().info}`}>
           Fuqia e fjalëkalimit: <span>{createPasswordLabel().info} </span></p> 
         )}
       </p>

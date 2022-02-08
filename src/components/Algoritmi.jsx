@@ -37,25 +37,25 @@ export default function Algoritmi() {
     }
 
     return (
-        <div className=" mb-4">
+        <div className="mb-4">
             <div className="box-border m-0 ">
                 <div className=" max-w-4xl my-0 mx-auto bg-gray-100 p-5 shadow-xl rounded-sm text-center ">
                     <div className="flex justify-between flex-col items-center"></div>
-                    <div className="flex flex-row space-x-4 justify-center items-center ">
-                        <h2 className="text-lg font-semibold">Shëno fjalëkalimin: </h2>
+                    <div className="flex flex-col md:flex-row md:space-x-4 md:justify-center md:items-center ">
+                        <h2 className="text-base font-normal md:text-lg md:font-semibold">Shëno fjalëkalimin: </h2>
                         <input
                             type="text"
-                            className="w-1/2 h-14 text-xl border-2 border-solid border-gray-900 bg-white 
+                            className=" w-full h-11 md:w-1/2 md:h-14 text-xl border-2 border-solid border-gray-900 bg-white 
                             p-4 rounded-lg shadow-lg"
                             onChange={(e) => strongPasswordChecker(e.target.value)}>
                         </input>
                     </div>
-                    <div className="flex flex-row mt-2 items-center justify-center ">
-                        <h3 className="mx-2 font-medium">Numri minimal i hapave të nevojshëm për ta bërë
-                            <br /> fjalëkalimin e fortë duke u bazuar në
+                    <div className="flex flex-row mt-2 justify-start items-start md:items-center md:justify-center ">
+                        <h3 className="md:mx-2 text-sm md:text-base font-medium">Numri minimal i hapave të nevojshëm për ta bërë
+                            <span className="md:"> fjalëkalimin e fortë duke u bazuar në
                             <a href="https://leetcode.com/problems/strong-password-checker/"
                                 target="_blank" className="underline underline-offset-4
-                          decoration-sky-900/[.33] ml-1">algoritëm</a></h3>
+                          decoration-sky-900/[.33] ml-1">algoritëm</a></span></h3>
                         <div className=" text-red-500 font-semibold text-5xl ">
                             {result}
                         </div>
