@@ -83,9 +83,9 @@ const App = () => {
                     <p className="text-red-600 text-left ">  {isError}</p>
                   )}
                 </label>
-                <h3>Shëno fjalëkalimin: </h3>
+                <h3 className="text-base font-normal md:text-xl md:font-semibold">Shëno fjalëkalimin: </h3>
                 <div className="flex flex-row space-x-2">
-                  <input className="w-full h-11 md:h-14 text-xl border-2 border-solid border-gray-500 bg-white 
+                  <input className="w-full h-11 md:h-11 text-xl border-2 border-solid border-gray-500 bg-white 
           p-4 rounded-lg shadow-lg " type={passwordShown ? "text" : "password"} id="password" name="password"
                     onChange={handleChangePassword} required />
                   <button onClick={togglePassword} >

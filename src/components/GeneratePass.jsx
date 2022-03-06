@@ -5,8 +5,7 @@ import {
   numbers,
   upperCaseLetters,
   lowerCaseLetters,
-  specialCharacters,
-  words
+  specialCharacters
 } from '../utils/characters.js'
 import { COPY_SUCCESS } from '../utils/message'
 
@@ -19,15 +18,12 @@ const GeneratePass = () => {
     const [includeNumbers, setIncludeNumbers] = useState(false)
     const [includeSymbols, setIncludeSymbols] = useState(false)
 
-    const [includeWords, setIncludeWords] = useState(false);
-   
     const handleGeneratePassword = (e) => {
       if (
         !includeUppercase &&
         !includeLowercase &&
         !includeNumbers &&
-        !includeSymbols &&
-        !includeWords
+        !includeSymbols
       ) {
         notify('You must Select atleast one option', true)
       }
@@ -49,21 +45,15 @@ const GeneratePass = () => {
         characterList = characterList + specialCharacters
       }
 
-      if (includeWords) {
-        characterList = characterList + words
-      }
-  
       setPassword(createPassword(characterList))
     }
     const createPassword = (characterList) => {
       let password = ''
       const characterListLength = characterList.length
-
-      const charWords = 'Edon'
   
       for (let i = 0; i < passwordLength; i++) {
         const characterIndex = Math.round(Math.random() * characterListLength);
-        password = password + characterList.charAt(characterIndex) + Math.floor(Math.random() * charWords.length);
+        password = password + characterList.charAt(characterIndex);
       }
       return password
     }
@@ -112,16 +102,16 @@ const GeneratePass = () => {
   
     return (
         <div className='w-full my-0 mx-auto mt-2'>
-          <div className='bg-gray-100 rounded-md shadow-xl px-6 mb-2'>
-            <div className='relative bg-white py-4 px-0 md:px-2 mb-4'>
-              <h3 className="">{password}</h3>
-              <button onClick={handleCopyPassword} className='text-white 
-              border-none bg-gray-500 cursor-pointer top-1 right-1 '>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className='bg-gray-100 rounded-md shadow-xl px-4 py-2 mb-2'>
+            <div className='flex flex-row justify-between bg-white py-2 px-0 md:px-2 mb-4'>
+              <h3 className="text-base font-normal  md:font-semibold">{password}</h3>
+              <button onClick={handleCopyPassword} className='text-red-500   
+              border-none bg-white cursor-pointer top-1 right-1 '>
+                <svg xmlns="http://www.w3.org/2000/svg" className="flex h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
               </button>
-            </div>
+          </div>
   
 
             <div className='flex flex-row justify-between mb-2 md:mb-4'>
