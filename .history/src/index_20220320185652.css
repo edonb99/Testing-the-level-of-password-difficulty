@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::selection {
+    background: #800000;
+    color: #fff;
+  }
+  
+  * {
+    font-family: 'Exo 2', sans-serif;
+  }

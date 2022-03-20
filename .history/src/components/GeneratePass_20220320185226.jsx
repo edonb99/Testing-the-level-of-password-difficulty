@@ -101,12 +101,13 @@ const GeneratePass = () => {
     }
   
     return (
-        <div className='w-full mx-auto my-0 mt-2'>
-          <div className='px-4 py-2 mb-2 bg-gray-100 rounded-md shadow-xl'>
-            <div className='flex flex-row justify-between px-0 py-2 mb-4 bg-white md:px-2'>
-              <h3 className="text-base font-normal md:font-semibold">{password}</h3>
-              <button onClick={handleCopyPassword} className='text-red-500 bg-white border-none cursor-pointer top-1 right-1 '>
-                <svg xmlns="http://www.w3.org/2000/svg" className="flex w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className='w-full my-0 mx-auto mt-2'>
+          <div className='bg-gray-100 rounded-md shadow-xl px-4 py-2 mb-2'>
+            <div className='flex flex-row justify-between bg-white py-2 px-0 md:px-2 mb-4'>
+              <h3 className="text-base font-normal  md:font-semibold">{password}</h3>
+              <button onClick={handleCopyPassword} className='text-red-500   
+              border-none bg-white cursor-pointer top-1 right-1 '>
+                <svg xmlns="http://www.w3.org/2000/svg" className="flex h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
               </button>
@@ -126,9 +127,9 @@ const GeneratePass = () => {
               />
             </div>
   
-            <div className="flex flex-col justify-between md:flex-row">
+            <div className="flex flex-col md:flex-row justify-between">
 
-            <div className='flex flex-row justify-between mb-2 text-gray-800 md:mb-4'>
+            <div className='flex flex-row text-gray-800 justify-between mb-2 md:mb-4'>
               <label htmlFor='uppercase-letters'>Përfshijë shkronjë të madhe</label>
               <input
                 checked={includeUppercase}
@@ -140,7 +141,7 @@ const GeneratePass = () => {
               />
             </div>
 
-            <div className='flex justify-between mb-2 text-gray-800 md:mb-4'>
+            <div className='flex justify-between text-gray-800 mb-2 md:mb-4'>
               <label htmlFor='lowercase-letters'>Përfshijë shkronjë të vogël</label>
               <input
                 checked={includeLowercase}
@@ -156,7 +157,7 @@ const GeneratePass = () => {
   
             <div className="flex flex-col md:flex-row md:justify-between">
 
-            <div className='flex justify-between mb-2 text-gray-800 md:mb-4'>
+            <div className='flex justify-between text-gray-800 mb-2 md:mb-4'>
               <label htmlFor='include-numbers'>Përfshijë numër</label>
               <input
                 checked={includeNumbers}
@@ -168,7 +169,7 @@ const GeneratePass = () => {
               />
             </div>
   
-            <div className='flex justify-between mb-2 text-gray-800 md:mb-4'>
+            <div className='flex justify-between text-gray-800 mb-2 md:mb-4'>
 
               <label htmlFor='include-symbols'>Përfshijë simbole</label>
               <input
@@ -195,7 +196,10 @@ const GeneratePass = () => {
 
             </div>
   
-            <button onClick={handleGeneratePassword} className='block w-full p-2 mx-auto my-0 text-base text-blue-100 transition-all duration-500 bg-blue-600 border-none rounded md:w-1/4 translate scale hover:scale-110 hover:bg-blue-900 hover:text-blue-200 curser-pointer'>
+            <button onClick={handleGeneratePassword} className='border-none 
+            bg-blue-600 w-full md:w-1/4 my-0 mx-auto block translate transition-all 
+            scale hover:scale-110 duration-500 text-blue-100 hover:bg-blue-900 
+            hover:text-blue-200 text-base curser-pointer p-2 rounded'>
               Gjenero Fjalëkalimin
             </button>
            

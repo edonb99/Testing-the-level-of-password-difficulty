@@ -46,7 +46,7 @@ const PasswordChecker = (props) => {
   {props.actions(createPasswordLabel().info)}
   
   return (
-    <div className="w-full password-strength-meter ">
+    <div className="password-strength-meter w-full ">
       <progress className={`password-strength-meter-progress strength-${createPasswordLabel().info}`} 
       value={createPasswordLabel().value} max="4" />
       <br />

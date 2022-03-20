@@ -39,25 +39,26 @@ export default function Algoritmi() {
     return (
         <div className="mb-4">
             <div className="box-border m-0 ">
-                <div className="max-w-4xl p-5 mx-auto my-0 text-center bg-gray-100 rounded-sm shadow-xl ">
-                    <div className="flex flex-col items-center justify-between"></div>
+                <div className=" max-w-4xl my-0 mx-auto bg-gray-100 p-5 shadow-xl rounded-sm text-center ">
+                    <div className="flex justify-between flex-col items-center"></div>
                     <div className="flex flex-col md:flex-row md:space-x-4 md:justify-center md:items-center ">
                         <h2 className="text-base font-normal md:text-xl md:font-semibold">Shëno fjalëkalimin: </h2>
                         <input
                             type="text"
-                            className="w-full h-8 p-4 text-xl bg-white border-2 border-gray-900 border-solid rounded-lg shadow-lg  md:w-1/2 md:h-11"
+                            className=" w-full h-8 md:w-1/2 md:h-11 text-xl border-2 border-solid border-gray-900 bg-white 
+                            p-4 rounded-lg shadow-lg"
                             onChange={(e) => strongPasswordChecker(e.target.value)}>
                         </input>
                     </div>
-                    <div className="flex flex-row items-start justify-start mt-4 md:items-center md:justify-center">
-                    <div className="flex flex-col items-start justify-start space-x-4">
-                        <p className="text-sm font-medium md:mx-2 md:text-base">Numri minimal i hapave të nevojshëm për ta bërë</p>                            
-                        <p className="text-sm font-medium md:mx-2 md:text-base"> fjalëkalimin e fortë duke u bazuar në
+                    <div className="flex flex-row mt-4 justify-start items-start md:items-center md:justify-center">
+                    <div className="flex flex-col justify-start items-start space-x-4">
+                        <p className="md:mx-2 text-sm md:text-base font-medium">Numri minimal i hapave të nevojshëm për ta bërë</p>                            
+                        <p className="md:mx-2 text-sm md:text-base font-medium"> fjalëkalimin e fortë duke u bazuar në
                             <a href="https://leetcode.com/problems/strong-password-checker/"
                                 target="_blank" className="underline underline-offset-4
                           decoration-sky-900/[.33] ml-1">algoritëm</a></p>  
                     </div>
-                    <div className="text-5xl font-semibold text-red-500 ">
+                    <div className=" text-red-500 font-semibold text-5xl ">
                             {result}
                         </div>
                         </div>
