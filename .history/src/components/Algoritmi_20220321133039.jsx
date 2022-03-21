@@ -60,7 +60,7 @@ export default function Algoritmi() {
                 {" "}
                 fjalëkalimin e fortë duke u bazuar në
                 <a
-                  href="https://leetcode.com/problems/strong-password-checker/" rel="noreferrer"
+                  href="https://leetcode.com/problems/strong-password-checker/" rel="external"
                   target="_blank"
                   className="underline underline-offset-4
                           decoration-sky-900/[.33] ml-1"

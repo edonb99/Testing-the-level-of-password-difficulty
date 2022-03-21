@@ -130,14 +130,12 @@ const App = () => {
                   password={userInfo.password}
                   actions={dataHandler}
                 />
-                {isStrength === "Strong" && (
-                  <button
-                    type="submit"
-                    className="h-10 py-2 text-lg text-white border-0 rounded-lg outline-none bg-gradient-to-br from-gray-300 to-gray-900 px-7"
-                  >
-                    Fjalëkalimi në rregull{" "}
-                  </button>
-                )}
+
+          {isStrength === 'Strong' && 
+            <button type="submit" className="h-10 py-2 text-lg text-white border-0 rounded-lg outline-none bg-gradient-to-br from-gray-300 to-gray-900 px-7"  >
+             Fjalëkalimi në rregull </button>
+          }
+        
               </form>
             </div>
           </div>
