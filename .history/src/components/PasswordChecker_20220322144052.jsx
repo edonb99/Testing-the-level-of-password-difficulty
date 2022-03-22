@@ -47,7 +47,7 @@ const PasswordChecker = (props) => {
   }
 
   return (
-    <div className="w-full h-12 password-strength-meter ">
+    <div className="w-full password-strength-meter ">
       <progress
         className={`password-strength-meter-progress strength-${
           createPasswordLabel().info
@@ -57,18 +57,18 @@ const PasswordChecker = (props) => {
       />
       <br />
       <p className="text-base">
-      
+     
         {password && (
+          <div class="h-12">
           <p
-
-            className={`text-center text-base  md:text-xl font-medium password__label strength-${
+            className={`text-center text-base md:text-xl font-medium password__label strength-${
               createPasswordLabel().info
             }`}
           >
             Fuqia e fjalëkalimit: <span>{createPasswordLabel().info} </span>
+            </div>
           </p>
         )}
-
       </p>
     </div>
   );

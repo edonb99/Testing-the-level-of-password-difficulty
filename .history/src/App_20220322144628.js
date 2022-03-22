@@ -83,7 +83,7 @@ const App = () => {
                 className="flex flex-col items-stretch w-4/5 px-0 pt-2 pb-4 md:w-2/3"
               >
                 <label
-                  className="flex items-center h-12 mb-3 text-sm font-semibold"
+                  className="flex h-12 mb-3 text-sm font-semibold md:text-base"
                   htmlFor="password"
                 >
                   {isError !== null && (

@@ -82,14 +82,7 @@ const App = () => {
                 onSubmit={onSubmit}
                 className="flex flex-col items-stretch w-4/5 px-0 pt-2 pb-4 md:w-2/3"
               >
-                <label
-                  className="flex items-center h-12 mb-3 text-sm font-semibold"
-                  htmlFor="password"
-                >
-                  {isError !== null && (
-                    <p className="text-left text-red-600 "> {isError}</p>
-                  )}
-                </label>
+                
                 <h3 className="text-base font-normal md:text-xl md:font-semibold">
                   Shëno fjalëkalimin:{" "}
                 </h3>
@@ -138,6 +131,7 @@ const App = () => {
                     Fjalëkalimi në rregull{" "}
                   </button>
                 )}
+                
               </form>
             </div>
           </div>
